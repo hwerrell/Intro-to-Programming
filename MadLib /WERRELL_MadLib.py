@@ -25,7 +25,7 @@ emotion1 = input("Enter an emotion: ")
 adjective8 = input("Enter an adjective: ")
 
 
-## store story
+## Store story
 story = (f"""{name1} the monster was late for his first day of school! He {verb1} out of his {adjective1} bed, and rubbed the sleep out of his {adjective2} eyes. 
 As {adverb1} as he could, he pulled socks onto all {number1} of his feet. He ran downstairs and shoveled some {adjective3} cereal into his {bodyPart1}. 
 His mom yelled, {interjection1}! You're going to miss the {adjective4} bus! 
@@ -36,7 +36,7 @@ He stood up, just in time to see {name2}, the bus driver, open the {adjective7} 
 
 {name1} squeezed all {number2} of his {monsterPart1}s into a seat and breathed a sigh of {emotion1}. Finally, he was on his way to another {adjective8} day of monster school.""")
 
-## print story
+## Print story
 print(story)
 
 ## Press enter after filling in each prompt.
