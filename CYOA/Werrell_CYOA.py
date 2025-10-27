@@ -36,10 +36,7 @@ elif(branch1 == "2"):       #Neutral ending (go home)
     You shake off the unease and continue your walk home, the alley fading behind you. The evening air is crisp, and your footsteps echo on the familiar path.
     You have a perfectly normal walk back home, just like any other day.\n""")
     quit()
-
-else:
-    print("""\nInvalid input. Please enter 1 or 2.\n""")
-
+   
         #Decision tree 2 (inside the shop)
 branch2 = validateAnswer("""
     1. You ask the man about the shop.
@@ -71,10 +68,7 @@ elif (branch2 == "3"):      #Bad ending (steal pendant)
     the door slams shut with a thunderous bang, sealing you inside. The air thickens, and the walls pulse with a malevolent energy. The shopkeeper's eyes glow as he mutters an incantation, 
     and the floor beneath you opens into a dark chasm. You fall, the pendant slipping from your grasp, and the last thing you hear is his cold laughter as the darkness claims you.\n""")
     quit()
-    
-else:
-    print("""\nInvalid input. Please enter 1 or 2.\n""")
-
+   
                                             #Decision tree 3 (riddle)
 branch3 = input("""\nWhat is your answer?\n""")
 
