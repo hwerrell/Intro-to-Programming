@@ -90,6 +90,3 @@ else:                                   #Bad ending (answer incorrectly)
     The chamber collapses inward, pulling you into a swirling abyss. 
     You awaken bound in chains within the mirror's shattered frame, doomed to serve the sphinx's will for eternity.""")
     quit()
-
-
-#In case you couldn't get it, the answer to the riddle is "river!"
