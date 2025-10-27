@@ -13,7 +13,11 @@ def validateAnswer(prompt, validAnswers):
             print("Please enter a valid number")    
                                 
                             #intro   
-print("""                       
+print("""
+    Welcome to The Hidden Door, a choose your own adventure story. For each choice, type in a number (i.e. "2") to select your answer.
+
+    Let's begin.
+
     You're walking down the street when, down a small alley, you notice - for the first time - a small, gnarled wooden door, its weathered surface hinting at many decades, if not centuries, of existence. 
     A faint light shines through its cracked window, casting an amber glow on the cobblestones. You've walked this route home almost every day for years. Surely you would have noticed it before?""") #introduction
 
