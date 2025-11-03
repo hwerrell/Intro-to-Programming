@@ -87,9 +87,6 @@ score_timer = 0
 points_per_second = 1
 frames_per_score = 60
 
-# WIN CONDITION
-# winning_score = 60  # Adjustable win condition
-
 # FUEL SYSTEM
 max_fuel = 100
 fuel = max_fuel
@@ -102,19 +99,17 @@ fuel_fill_rate = 1.0  # How fast the fuel fills per frame
 # Game state
 game_started = False
 game_over = False
-game_won = False
 waiting_for_restart = False
 game_over_reason = ""  # Track why game ended
 
 # Function to reset the game
 def reset_game():
-    global car_x, car_y, obstacle_cars, collectibles, game_over, game_won, waiting_for_restart, spawn_timer, score, score_timer, collectible_spawn_timer, current_collectible_spawn_delay, fuel, game_over_reason
+    global car_x, car_y, obstacle_cars, collectibles, game_over, waiting_for_restart, spawn_timer, score, score_timer, collectible_spawn_timer, current_collectible_spawn_delay, fuel, game_over_reason
     car_x = lane_2_x - car_width // 2
     car_y = screen_height - 150
     obstacle_cars = []
     collectibles = []  # Reset collectibles
     game_over = False
-    game_won = False
     waiting_for_restart = False
     spawn_timer = 0
     score = 0
@@ -151,7 +146,7 @@ while running:
             running = False
         
         if event.type == pygame.KEYDOWN:
-            if not game_started and not game_over and not game_won:
+            if not game_started and not game_over:
                 # Start the game on any key press from start screen
                 game_started = True
             elif waiting_for_restart:
@@ -161,7 +156,7 @@ while running:
                 elif event.key == pygame.K_n:
                     running = False
     
-    if game_started and not game_over and not game_won:
+    if game_started and not game_over:
         # Get keyboard input for car movement
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
@@ -214,11 +209,7 @@ while running:
         if score_timer >= frames_per_score:
             score += points_per_second
             score_timer = 0
-        
-        # Check for win condition
-        # if score >= winning_score:
-        #     game_won = True
-        #     waiting_for_restart = True
+
         
         # Drain fuel
         fuel -= fuel_drain_rate
@@ -269,7 +260,7 @@ while running:
     screen.fill(GREEN)
     
     # Draw start screen
-    if not game_started and not game_over and not game_won:
+    if not game_started and not game_over:
         # Draw a static road in the background
         pygame.draw.rect(screen, DARK_GRAY, (road_left, 0, road_width, screen_height))
         pygame.draw.rect(screen, WHITE, (road_left, 0, 6, screen_height))
@@ -297,10 +288,6 @@ while running:
         instruction2 = font_instructions.render("Collect green gas cans to stay alive!", True, BRIGHT_GREEN)
         instruction2_rect = instruction2.get_rect(center=(screen_width // 2, screen_height // 2 + 20))
         screen.blit(instruction2, instruction2_rect)
-        
-        # instruction3 = font_instructions.render(f"Reach {winning_score} points to win!", True, YELLOW)
-        # instruction3_rect = instruction3.get_rect(center=(screen_width // 2, screen_height // 2 + 60))
-        # screen.blit(instruction3, instruction3_rect)
         
         instruction4 = font_instructions.render("Arrow keys to move", True, WHITE)
         instruction4_rect = instruction4.get_rect(center=(screen_width // 2, screen_height // 2 + 100))
@@ -380,30 +367,8 @@ while running:
         fuel_text = font_fuel.render("FUEL", True, WHITE)
         screen.blit(fuel_text, (gauge_x + 5, gauge_y + 5))
         
-        # Draw win screen
-        if game_won and waiting_for_restart:
-            overlay = pygame.Surface((screen_width, screen_height))
-            overlay.set_alpha(128)
-            overlay.fill((0, 0, 0))
-            screen.blit(overlay, (0, 0))
-            
-            font_large = pygame.font.Font(None, 84)
-            text = font_large.render("YOU WIN!", True, BRIGHT_GREEN)
-            text_rect = text.get_rect(center=(screen_width // 2, screen_height // 2 - 80))
-            screen.blit(text, text_rect)
-            
-            font_score_final = pygame.font.Font(None, 52)
-            final_score_text = font_score_final.render(f"Final Score: {score}", True, YELLOW)
-            final_score_rect = final_score_text.get_rect(center=(screen_width // 2, screen_height // 2 - 10))
-            screen.blit(final_score_text, final_score_rect)
-            
-            font_small = pygame.font.Font(None, 36)
-            restart_text = font_small.render("Play Again? Y/N", True, WHITE)
-            restart_rect = restart_text.get_rect(center=(screen_width // 2, screen_height // 2 + 60))
-            screen.blit(restart_text, restart_rect)
-        
         # Draw game over message
-        elif game_over and waiting_for_restart:
+        if game_over and waiting_for_restart:
             overlay = pygame.Surface((screen_width, screen_height))
             overlay.set_alpha(128)
             overlay.fill((0, 0, 0))
