@@ -3,8 +3,7 @@
 # 1. The game asks if you would like to take a break after 2 minutes of game time. If you say yes, the game window closes.
 # 2. The game ends after 5 minutes, no matter what (you win!).
 # 3. The controls have been simplified as to make it more accessible - removed the use of up and down movement.
-# 4. The spawn rate of the cars slows down over the course of the game until there are no cars on the screen at all 
-# - this makes the game boring to the point that it is no longer fun.
+# 4. The spawn rate of the cars slows down over the course of the game until there are no cars on the screen at all - this makes the game boring to the point that it is no longer fun.
 # The function I added is the draw_car function, which draws a car at a specified position with a given color.
 
 # This game was heavily inspired by the 1983 arcade game Spy Hunter.
