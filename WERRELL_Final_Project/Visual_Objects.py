@@ -25,12 +25,12 @@ CloudStyle3 = CloudStyle([(-1.5, 0, random.randint(int(.2*255), int(.4*255))), (
 
 class Cloud:
     def __init__(self, idx):
-        self.x = -100 #Moves the clouds left so they start off-screen
-        self.y = (-(year[idx]) + 2030) * 11 #Multiplying by 11 normalizes clouds on the y axis - I'm sure there's a more mathematical way to do this
+        self.x = -150 #Moves the clouds left so they start off-screen
+        self.y = (-(year[idx]) + 2030) * 11 #Adding the most recent year and multiplying by 11 normalizes clouds on the y axis - I'm sure there's a more mathematical way to do this
         self.width = 20
         self.height = 20
         self.size = pop[idx] / 1.5 #Dividing by 1.5 makes all the clouds a little smaller - just for visual balance
-        self.color = energy[idx] #Multiplying by 1.25 makes all the clouds a little lighter and normalizes the color variations
+        self.color = energy[idx] * 1.25 #Multiplying by 1.25 makes all the clouds a little lighter and normalizes the color variations
         self.speed = tempo[idx] / 400 #Dividing by 400 slows down all the clouds to about the right speed
 
         #Randomly assigns one of the three cloud styles
@@ -46,8 +46,8 @@ class Cloud:
     def update(self, WIDTH):
         """changes position of clouds every frame"""
         self.x = self.x + self.speed
-        if self.x >= self.width*3 + WIDTH:
-            self.x = 0
+        if self.x >= self.width+200 + WIDTH:
+            self.x = -100 #moving it left a bit to reduce pop-in
 
 
 clouds = []
