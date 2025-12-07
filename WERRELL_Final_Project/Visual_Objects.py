@@ -57,7 +57,7 @@ pop = []        #size
 energy = []     #color
 tempo = []      #speed left to right
 
-with open('spotify.csv', newline='', encoding='utf-8') as csvfile:
+with open('spotify.csv', newline='', encoding='utf-8') as csvfile: #When moving from Linux to Windows I had an error here, I used Claude to debug and added this utf-8 encoding structure
     file = csv.reader(csvfile, delimiter=',', quotechar='"')
     next(file)
     for row in file:
