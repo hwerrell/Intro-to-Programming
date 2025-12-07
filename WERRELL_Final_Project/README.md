@@ -3,7 +3,7 @@ Song Clouds
 Turn your playlist into a sky of clouds!
 
 ## Data Source
-This program takes a CSV of a Spotify playlist created by **Exportify**: https://exportify.net, and animates it as a data-visualization.
+This program takes a CSV of a Spotify playlist created by [Exportify](https://exportify.net), and animates it as a data-visualization.
 
 ## Data Mapping
 The animation is based on 4 different data points:
