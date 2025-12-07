@@ -7,6 +7,7 @@ class CloudStyle:
         self.circles = circles
 
     def calc_color(self, color_variation, r, g, b): #Reid helped me with this method and working it into my draw method
+        """Shades the base color of each circle by changing the red value"""
         new_r = max(0, r - color_variation)  #Sets a limit so the r value doesn't go below 0
         return (new_r, g, b)
     
