@@ -7,7 +7,7 @@ class CloudStyle:
         self.circles = circles
     
     def draw_outline(self, screen, x, y, d, outline_width=2):
-        """Draws black outlines for each cloud"""
+        """Draws black outlines for each cloud""" #These are really just slightly larger black circles behind each cloud.
         for offset_x, offset_y in self.circles:
             pygame.draw.circle(screen, (0, 0, 0), (x + int(offset_x * d), y + int(offset_y * d)), d + outline_width)
     
