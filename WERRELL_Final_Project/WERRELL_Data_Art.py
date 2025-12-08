@@ -23,8 +23,9 @@ clock = pygame.time.Clock()
 if __name__ == "__main__":
     # Create the clouds for each song/track
     for i in range(len(vo.year)):
-        cloud_instance = vo.Cloud(i)
-        vo.clouds.append(cloud_instance)
+        if vo.pop[i] > 1: #Songs that have a popularity of 0 show up weirdly because of the outlines, so they are being ignored
+            cloud_instance = vo.Cloud(i)
+            vo.clouds.append(cloud_instance)
     
     running = True
     while running:
